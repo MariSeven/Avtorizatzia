@@ -14,7 +14,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock x:Name="txtWelcome"
@@ -26,13 +25,12 @@
             <Button x:Name="btnChangePassword" Content="Сменить пароль" 
                     Width="200" Height="40" 
                     Margin="0,10" FontSize="16"
-                    Background="#1565C0" Foreground="White"
                     Click="BtnChangePassword_Click"/>
 
             <Button x:Name="btnLogout" Content="Выйти из аккаунта" 
                     Width="200" Height="40" 
                     Margin="0,10" FontSize="16"
-                    Background="#AAAAAA" Foreground="White"
+                    Background="#AAAAAA" 
                     Click="BtnLogout_Click"/>
         </StackPanel>
     </Grid>

@@ -17,18 +17,25 @@ namespace Avtorizatzia
     /// </summary>
     public partial class Account : Window
     {
-        private string _currentLogin;
+        // Переменная, отвечающая за логин
+        string _currentLogin;
+        public int podtv = 0;
+
+        // Конструктор (принимает логин из окна MainWindow)
         public Account(string currentLogin)
         {
             InitializeComponent();
             _currentLogin = currentLogin;
+            // Замена текста в текст блоке на сообщение
             txtWelcome.Text = $"Добро пожаловать, {_currentLogin}!";
         }
 
+        // Метод кнопки смена пароля
         private void BtnChangePassword_Click(object sender, RoutedEventArgs e)
         {
             string newPassword = Microsoft.VisualBasic.Interaction.InputBox("Введите новый пароль:", "Смена пароля", "");
 
+            // Проверка заполнения нового пароля
             if (!string.IsNullOrEmpty(newPassword))
             {
                 UserDatabase.Users[_currentLogin] = newPassword;
@@ -36,6 +43,7 @@ namespace Avtorizatzia
             }
         }
 
+        // Метод кнопки выхода из аккаунта
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
 
@@ -43,18 +51,27 @@ namespace Avtorizatzia
             if (result == MessageBoxResult.Yes)
             {
                 MainWindow main = new MainWindow();
+                podtv = 1;
                 this.Close();
                 main.Show();
             }
+
         }
 
+        // Метод обработки закрытия
         private void Close_Click(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Вы точно хотите закрыть приложение?", "Подтверждение закрытия", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.No)
+
+            if (podtv == 0)
             {
-                e.Cancel = true;
+                MessageBoxResult result = MessageBox.Show("Вы точно хотите закрыть приложение?", "Подтверждение закрытия", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.No)
+                {
+                    e.Cancel = true;
+                }
+
             }
+            
         }
     }
 }

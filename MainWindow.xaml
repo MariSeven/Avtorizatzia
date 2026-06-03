@@ -35,13 +35,9 @@
 
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="btnLogin" Content="Войти" 
-                    Width="100" Height="30" 
-                    Margin="15" Background="#1565C0" Foreground="White"
                     Click="BtnLogin_Click"/>
 
             <Button x:Name="btnExit" Content="Выход" 
-                    Width="100" Height="30" 
-                    Margin="15" Background="#1565C0" Foreground="White"
                     Click="BtnExit_Click"/>
         </StackPanel>
     </Grid>
